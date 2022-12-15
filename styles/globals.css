@@ -4,8 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   background-color: #82C3EC;
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -14,6 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -24,3 +26,5 @@ a {
     background: black;
   }
 }
+
+
