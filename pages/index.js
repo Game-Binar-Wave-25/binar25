@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-
 
 export default function Home() {
 
@@ -22,8 +22,8 @@ export default function Home() {
             widht="400"
             height="500"/>
             <Card.Body>
-            <Card.Text className="text-black d-flex justify-content-center">
-                Welcome To Binar Game
+              <Card.Text className="text-black d-flex justify-content-center">
+                  Welcome To Binar Game
               </Card.Text>
               <Card.Text className="text-black d-flex justify-content-center">
                 Enjoy Us!
@@ -31,10 +31,10 @@ export default function Home() {
               <Card.Text className="text-black d-flex justify-content-center">
                 Please Login or Signup First
               </Card.Text>
-              <Button className="d-flex justify-content-center mt-3" href="/Login" variant="primary" size="md">
+              <Button className="d-flex justify-content-center mt-3" href="/Login" variant="dark" size="md">
                 Login
               </Button>
-              <Button className="d-flex justify-content-center mt-3" href="/Signup" variant="primary" size="md">
+              <Button className="d-flex justify-content-center mt-3" href="/Signup" variant="dark" size="md">
                 Signup
               </Button>
             </Card.Body>
