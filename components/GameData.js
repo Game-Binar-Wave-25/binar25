@@ -10,31 +10,35 @@ export const GameData = [
   // },
   {
     id: 1,
-    title: 'Arena Of Valor',
-    category: 'Arena of Valor adalah sebuah permainan video berjenis arena pertarungan daring multipemain yang diterbitkan oleh Tencent.',
+    title: 'Valorant',
+    category: 'Valorant is a free-to-play first-person tactical hero shooter developed and published by Riot Games, for Windows.',
     btn: 'see game',
+    web: 'https://playvalorant.com/',
     linkImg:
-      'https://i.ibb.co/xSK5c9J/Arena-Of-Valor.jpg',
+      'https://blog.metaco.gg/wp-content/uploads/2022/02/valorant.jpg',
   },
   {
     id: 2,
-    title: 'Mobile Legends',
-    category: 'Mobile Legends adalah permainan seluler terbitan Moonton berbasis MOBA yang dimainkan secara daring.',
+    title: 'Dota 2',
+    category: "Dota 2 is a 2013 multiplayer online battle arena video game by Valve. The game is a sequel to Defense of the Ancients, a community-created mod for Blizzard Entertainment's Warcraft III: Reign of Chaos.",
+    web: 'https://www.dota2.com/',
     linkImg:
-      'https://esportsku.com/wp-content/uploads/2020/07/mlbb.png',
+      'https://akcdn.detik.net.id/community/media/visual/2019/05/03/df6af1b5-8c91-4f60-a6ca-34182a9f42d7_169.jpeg?w=700&q=90',
   },
   {
     id: 3,
-    title: 'Clash Royale',
-    category: 'Clash Royale adalah game buatan Supercell bertema kerajaan fantasi, yang karakter karakter di dalamnya sebagian diambil dari game saudaranya yakni Clash of Clans.',
+    title: 'Point Blank',
+    category: 'Point Blank is a first-person shooter video game developed by the South Korean company Zepetto for Microsoft Windows.',
+    web: 'https://www.pointblank.id/',
     linkImg:
-      'https://awsimages.detik.net.id/community/media/visual/2016/02/11/35826cf9-6b35-492c-945a-bc1edb61571e_169.jpg?w=700&q=90',
+      'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/06/09/2715616301.jpg',
   },
   {
     id: 4,
-    title: 'PUBG',
-    category: 'PlayerUnknown Battlegrounds (sering disingkat PUBG) adalah sebuah permainan battle royale, di mana 100 orang sekaligus dapat bermain secara daring.',
+    title: 'Grand Theft Auto V',
+    category: "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the seventh main entry in the Grand Theft Auto series, following 2008's Grand Theft Auto IV, and the fifteenth instalment overall.",
+    web: 'https://www.rockstargames.com/gta-v',
     linkImg:
-      'https://images.bisnis.com/posts/2020/05/30/1246547/games-pubg.jpg',
+      'https://cdn.medcom.id/dynamic/content/2020/05/15/1144188/l70z5yoeOP.jpg?w=1024',
   },
 ];

@@ -1,12 +1,10 @@
 import { NavbarComponent } from "../components";
 import { GameData } from "../components/GameData";
 import { OtherGame } from "../components/OtherGame";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Button from 'react-bootstrap/Button';
-// import Carousel from 'react-bootstrap/Carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Home(){
     // map((element) => { /* … */ })
@@ -18,8 +16,10 @@ export default function Home(){
 
     return(
         <>
+        {/* <img className="position-absolute"
+            src='https://cdn.pixabay.com/photo/2015/04/18/11/12/pale-728606_1280.jpg' alt="Background Image"
+            style={{height:'2000px'}}/> */}
             <NavbarComponent></NavbarComponent>
-
 
         <div className="container w-50 justify-content-center mt-5">
             <h1 className="text-center">Refreshing Game</h1>
@@ -44,7 +44,7 @@ export default function Home(){
                   </div>
                   
               </Carousel>
-              <Button href="/GameSuit" className="d-flex justify-content-center">Play Now!</Button>
+              <Button href="/GameSuit" variant="dark" className="d-flex justify-content-center">Play Now!</Button>
             </div>
 
 
@@ -59,7 +59,7 @@ export default function Home(){
                             <Card.Text className='text-black'>
                             {el.category}
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button href={el.web} variant="primary">Go somewhere</Button>
                         </Card.Body>
                         </Card>
                     </div>
