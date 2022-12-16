@@ -16,6 +16,9 @@ export default function Home(){
 
     return(
         <>
+        {/* <img className="position-absolute"
+            src='https://cdn.pixabay.com/photo/2015/04/18/11/12/pale-728606_1280.jpg' alt="Background Image"
+            style={{height:'2000px'}}/> */}
             <NavbarComponent></NavbarComponent>
 
         <div className="container w-50 justify-content-center mt-5">
@@ -56,7 +59,7 @@ export default function Home(){
                             <Card.Text className='text-black'>
                             {el.category}
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button href={el.web} variant="primary">Go somewhere</Button>
                         </Card.Body>
                         </Card>
                     </div>
