@@ -9,9 +9,6 @@ export default function Profile(){
     return(
         <>
             <NavbarComponent></NavbarComponent>
-            
-            <Link href="/UpdateProfile"><h1>update profile</h1></Link>
-
         </>
     )
 }

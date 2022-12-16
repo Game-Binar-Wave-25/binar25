@@ -1,12 +1,10 @@
 import { NavbarComponent } from "../components";
 import { GameData } from "../components/GameData";
 import { OtherGame } from "../components/OtherGame";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Button from 'react-bootstrap/Button';
-// import Carousel from 'react-bootstrap/Carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Home(){
     // map((element) => { /* … */ })
@@ -19,7 +17,6 @@ export default function Home(){
     return(
         <>
             <NavbarComponent></NavbarComponent>
-
 
         <div className="container w-50 justify-content-center mt-5">
             <h1 className="text-center">Refreshing Game</h1>
@@ -44,7 +41,7 @@ export default function Home(){
                   </div>
                   
               </Carousel>
-              <Button href="/GameSuit" className="d-flex justify-content-center">Play Now!</Button>
+              <Button href="/GameSuit" variant="dark" className="d-flex justify-content-center">Play Now!</Button>
             </div>
 
 
