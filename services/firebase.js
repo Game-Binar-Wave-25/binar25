@@ -1,21 +1,19 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth"
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDfpuZjgrIpw_C4hVQVeboRXOnpk0bnyz0",
-  authDomain: "challenge-chapter-10.firebaseapp.com",
-  databaseURL: "https://challenge-chapter-10-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "challenge-chapter-10",
-  storageBucket: "challenge-chapter-10.appspot.com",
-  messagingSenderId: "325113462697",
-  appId: "1:325113462697:web:edc0bead2a6cab45c1ceb8",
-  measurementId: "G-FEF4YB4G1Z"
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const authFirebase = getAuth(app)
-// const analytics = getAnalytics(app);
+
 
 export default authFirebase

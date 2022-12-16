@@ -1,6 +1,11 @@
 import React from 'react';
 import authFirebase from "../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { 
+    Button,
+    Form,
+    Input
+ } from 'reactstrap';
 
 const {Component} = require("react")
     
@@ -12,6 +17,8 @@ class Register extends Component {
     }
     handleRegister= () => {
         console.log(this.state);
+
+        this.setState({flagginglogin:true})
     
         createUserWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
             .then((userCredential) => {
@@ -20,6 +27,7 @@ class Register extends Component {
             .catch((error) => {
                 const errorMessage = error.message;
                 alert (errorMessage)
+                this.setState({flagginglogin:false})
             });
     
         }
@@ -33,15 +41,26 @@ class Register extends Component {
         render() {
     return (
         <>
-            <h2 className="fw-bold mb-2 text-uppercase">Register</h2>
-            <p className="text-dark-50 mb-5">Please enter your email and password!</p>
-            
-            <input onChange={this.handleOnChange} placeholder='Enter email' id='email' type='email' size="lg" />
-            <input onChange={this.handleOnChange} placeholder='Enter password' id='password' type='password' size="lg" />
-            <button className='w-100 mb-4' size='md' onClick={this.handleRegister}>SIGN UP</button>
-
-            <div>
-                <p className="mb-0">You have an account? <a href="/login">Sign In</a></p>
+            <div className='container-fluid boardRegister'>
+                <div className="container d-flex row Register">
+                    <h2 className="fw-bold  text-uppercase text-center text-dark mt-4">Register</h2>
+                    <p className="text-dark-50 text-center text-dark mt-2" >Please enter your email and password!</p>
+                    <Form className=''>
+                        <div className='inputEmail mb-3'>
+                            <Input  onChange={this.handleOnChange} placeholder='Enter email' id='email' type='email' size="md" />
+                        </div>
+                        <div className='inputPassword mb-5'>
+                            <Input onChange={this.handleOnChange} placeholder='Enter password' id='password' type='password' size="md" />
+                        </div>
+                        <Button className='buttonRegister mb-5' color="primary" onClick={this.handleRegister} size="md" >
+                            { this.state.flagginglogin && 
+                            <span className="spinner-border spinner-border-lg " role="status" aria-hidden="true"></span>} Sign Up
+                        </Button>
+                    </Form>
+                    <div>
+                        <p className="paraf text-dark">You have an account?<a href="/login" className='signin'>Sign In</a></p>
+                    </div>
+                </div>
             </div>
         </>
     );

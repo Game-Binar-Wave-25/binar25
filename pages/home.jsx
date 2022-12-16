@@ -9,6 +9,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default function Home(){
     // map((element) => { /* … */ })
     // console.log(GameData, '->game');
+    let text =  "abcdefgasdfasdf";
+    let convert = text.slice(0, 5) + (text.length > 5 ? "..." : "");
+    console.log(text);
+    console.log(convert);
 
     return(
         <>
