@@ -1,21 +1,19 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth"
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAH7QxNzKXmGOr0jsnsS_-FRyYzIvPL_D8",
-  authDomain: "testingfajar-f893b.firebaseapp.com",
-  databaseURL: "https://testingfajar-f893b-default-rtdb.firebaseio.com",
-  projectId: "testingfajar-f893b",
-  storageBucket: "testingfajar-f893b.appspot.com",
-  messagingSenderId: "160512182293",
-  appId: "1:160512182293:web:0a9e03a45c5e2f924a661c",
-  measurementId: "G-GFYJH8DXMQ"
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const authFirebase = getAuth(app)
-// const analytics = getAnalytics(app);
+
 
 export default authFirebase
