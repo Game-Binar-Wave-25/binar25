@@ -80,7 +80,7 @@ export default function Home(){
                             <Card.Text className='text-black card-text'>
                             {el.category}
                             </Card.Text>
-                            <Button href={el.web} variant="primary">See More</Button>
+                            <Button className="d-flex justify-content-center" href={el.web} alt="gambar game" variant="primary">See More</Button>
                         </Card.Body>
                         </Card>
                     </div>
@@ -103,7 +103,7 @@ export default function Home(){
                             <Card.Text className='text-black card-text'>
                             {el.category}
                             </Card.Text>
-                            <Button variant="primary">See More</Button>
+                            <Button className="d-flex justify-content-center" href={el.web} alt="gambar game" variant="primary">See More</Button>
                         </Card.Body>
                         </Card>
                     </div>
