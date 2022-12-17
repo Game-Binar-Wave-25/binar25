@@ -6,6 +6,7 @@ import {
     Form,
     Input
  } from 'reactstrap';
+import StaticModal from '../components/modal';
 
 const {Component} = require("react")
     
@@ -13,7 +14,9 @@ class Register extends Component {
 
     state= {
         email: '',
-        password: ''
+        password: '',
+        flagginglogin: false,
+        isError: false
     }
     handleRegister= () => {
         console.log(this.state);
@@ -25,9 +28,8 @@ class Register extends Component {
                 window.location.href= './login'
             })
             .catch((error) => {
-                const errorMessage = error.message;
-                alert (errorMessage)
                 this.setState({flagginglogin:false})
+                this.setState({isError:true})
             });
     
         }
@@ -58,9 +60,19 @@ class Register extends Component {
                         </Button>
                     </Form>
                     <div>
-                        <p className="paraf text-dark">You have an account?<a href="/login" className='signin'>Sign In</a></p>
+                        <p className="paraf text-dark">
+                            You have an account?
+                            <a href="/login" className='signin'>
+                                Sign In
+                            </a>
+                        </p>
                     </div>
                 </div>
+                { 
+                    (
+                        <StaticModal toogleModal={(value)=> this.setState({isError:value})} isShowModal={this.state.isError}/>
+                    )
+                }
             </div>
         </>
     );
@@ -68,5 +80,3 @@ class Register extends Component {
 }
 
 export default Register;
-
-// register still dont have modal

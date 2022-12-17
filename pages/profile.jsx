@@ -98,3 +98,6 @@ const Profile = () => {
 }
 
 export default Profile
+
+// please finished it :)
+// bug on Card

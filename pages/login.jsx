@@ -1,12 +1,13 @@
 import React from 'react';
 import authFirebase from '../services/firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
+import StaticModal from '../components/modal';
 import { 
     Button,
     Form,
     Input,
  } from 'reactstrap';
- import StaticModal from '../components/modal';
+//  import StaticModal from '../components/modal';
 const {Component} = require("react")
     
 class Login extends Component {
@@ -73,13 +74,14 @@ class Login extends Component {
                         <Button className='google-btn fw-bold' color='danger'>G</Button>
                     </div>
                     <div>
-                        <a href="#" className='forget-pw'>forget password</a>
+                        <p className="paraf-login text-dark">Don't have an account?<a href="/register" className='signin'>Sign Up</a></p>
                     </div>
                 </div>
-                { (
-                <StaticModal toogleModal={(value)=> this.setState({isError:value})} isShowModal={this.state.isError}/>
-            )
-            }
+                { 
+                    (
+                        <StaticModal toogleModal={(value)=> this.setState({isError:value})} isShowModal={this.state.isError}/>
+                    )
+                }
             </div>
         </>
     );

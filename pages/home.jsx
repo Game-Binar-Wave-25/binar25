@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { NavbarComponent, NavigationBar } from "../components";
 import { GameData } from "../components/GameData";
 import { OtherGame } from "../components/OtherGame";
@@ -94,6 +93,8 @@ export default function Home(){
     )
 }
 
-// note : bug on <NavbarComponent/>
-// home still dont have authenticate
-// change text-black to text-dark
+// - note : bug on <NavbarComponent/>
+// - home still dont have authenticate
+// - sry mas natan i replace text-black to text-dark because text-black not work my computer
+// - please create redirect from href={el.web} to <GameDetails props={}> so, page gamedetails
+// have the same data from GameData, since we dont build with redux
