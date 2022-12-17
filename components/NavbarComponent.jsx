@@ -2,28 +2,22 @@ import React, {useEffect} from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import styles from '../styles/NavBar.module.css';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Image from "next/image";
-import LogoBinar from "./images/Binar.png"
-//css import
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 
 
 export default function NavbarComponent() {
-
-    const router = useRouter();
-    const currentRoute = router.pathname;
 
     return(
         <div className="fixed-top">
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container>
                 <Navbar.Brand>
-                    <Image
+                    <img
                     alt="Binar Academy"
-                    src={LogoBinar.src}
+                    src="https://play-lh.googleusercontent.com/_5KoeljZI1DlzpSpSltfdAFJKghgl0E1iUB9h9l-q2TIGsZlQY1TU6JlPR_2uCs8iQ=s96-rw"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
@@ -32,23 +26,12 @@ export default function NavbarComponent() {
                     <div className="d-flex justify-content-around">
                         <Navbar.Brand>Binar Game Library</Navbar.Brand>
                     </div>
-                    <Navbar.Collapse className='d-flex justify-content-end'>
-                            <Nav.Link className="d-flex align-items-center me-2 text-white">      
-                            <Link href='/Home' className={currentRoute === '/Home' ? styles.active : styles.nonActive}>
-                                Home
-                            </Link></Nav.Link>
-                            <Nav.Link className="d-flex align-items-center text-white me-2">     
-                            <Link
-                                href='/Profile'
-                                className={currentRoute === '/Profile' ? styles.active : styles.nonActive}>
-                                Profile
-                            </Link></Nav.Link>
-                            <Nav.Link className="d-flex align-items-center text-white">     
-                            <Link
-                                href='/'
-                                className={currentRoute === '/' ? styles.active : styles.nonActive}>
-                                Logout
-                            </Link></Nav.Link>              
+                    <Navbar.Collapse className='d-flex justify-content-end' id="basic-navbar-nav">
+                        <Nav>
+                            <Nav.Link className="d-flex align-items-center me-2 text-white"href="/Home">Home</Nav.Link>
+                            <Nav.Link className="d-flex align-items-center text-white"href="/Profile">Profile</Nav.Link>
+                            <Nav.Link className="d-flex ms-3 text-white" href="/Logout">Logout</Nav.Link>                
+                        </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
