@@ -4,6 +4,8 @@ import { Card } from 'react-bootstrap'
 import { BiEditAlt } from 'react-bootstrap-icons'
 
 const profile = () => {
+    
+
     return (
     <div className="profile">
         <div className="title-section">
@@ -42,7 +44,7 @@ const profile = () => {
                         <p>Bill Gates</p>
                         <p>billganteng@gmail.com</p>
                         <p>50</p>
-                        <p>092829</p>
+                        <p>081081081081</p>
                     </div>
                 </div>
                 <br />
