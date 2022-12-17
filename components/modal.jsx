@@ -31,8 +31,8 @@ class StaticModal extends React.Component {
     return (
       <div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Warning</ModalHeader>
-          <ModalBody>
+          <ModalHeader toggle={this.toggle} className="text-danger fw-bold">Warning</ModalHeader>
+          <ModalBody className='text-dark fw-bold'>
             Please Check Your Email/Password Correctly
           </ModalBody>
           <ModalFooter>

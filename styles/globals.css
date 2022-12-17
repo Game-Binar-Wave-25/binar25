@@ -90,15 +90,10 @@ a {
   position: relative;
 }
 
-.parafLogin {
-  margin-left: 15px;
-  margin-top: -40px;
+.paraf-login {
+  margin-left: 20px;
+  margin-top: 25px;
   position: relative;
-}
-
-.forget-pw {
-  margin-left: 70px;
-  color:  #24a0ed;
 }
 
 .signin {
@@ -107,13 +102,13 @@ a {
 
 .or {
   position: absolute;
-  margin-top: 235px;
+  margin-top: 210px;
 }
 
 .fb-btn {
   position: absolute;
   margin-left: 80px;
-  margin-top: -28px;
+  margin-top: -15px;
   border-radius: 50%;
 
 }
@@ -121,6 +116,6 @@ a {
 .google-btn {
   position: absolute;
   margin-left: 140px;
-  margin-top: -35px;
+  margin-top: -15px;
   border-radius: 50%;
 }
