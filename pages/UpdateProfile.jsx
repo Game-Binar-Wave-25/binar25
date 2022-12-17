@@ -1,20 +1,40 @@
 import React, { useState, useEffect } from "react";
-import firebase, { database, authFirebase } from '../config/firebase'
+import { database, authFirebase } from '../config/firebase'
 import { ref, set } from 'firebase/database'
+import jwt_decode from "jwt-decode";
 
 const ProfileUpdate = () => {
+    const [id, setId] = useState(0)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [age, setAge] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
+    const [isUser, setUser] = useState('')
+    const [isUserId, setUserId] = useState('')
+
+    const authenticate = () => {
+      let storage = localStorage.getItem("accesstoken")
+      if (storage === "" || storage === null){
+        navigate('/LoginPage')
+      } else {
+        let decode = jwt_decode(storage)
+        setUser(decode.email)
+        setUserId(decode.user_id)
+      }
+    }
 
     const handleSubmit = (e) => {
+        // authenticate()
         e.preventDefault()
+        // setId(id+1)
         const userProfile = { name, email, age, phoneNumber }
         console.log(userProfile)
         set(ref(database,`Histories/${name}`), userProfile)
+        console.log('data posted')
         window.location.href = '/Profile'
     }
+
+    // useEffect
 
     return (
         <div className="profile-update">

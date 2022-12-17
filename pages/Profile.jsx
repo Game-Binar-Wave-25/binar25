@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
 import { BiEditAlt } from 'react-bootstrap-icons'
 
 const Profile = () => {
-    
+    const [data, setData] = useState({})
+    const [isUser, setUser] = useState('')
+    const [isUserId, setUserId] = useState('')
+
+    // const authenticate = () => {
+    //     let storage = localStorage.getItem("accesstoken")
+    //     if (storage === "" || storage === null){
+    //       navigate('/LoginPage')
+    //     } else {
+    //       let decode = jwt_decode(storage)
+    //       setUser(decode.email)
+    //       setUserId(decode.user_id)
+    //     }
+    //   }
+
+    const firebaseData = async () => {
+        try {
+            const db = await get(child(ref(database),`Histories/`))
+            setData(db.val())
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        firebaseData()
+    })
 
     return (
     <div className="profile">
