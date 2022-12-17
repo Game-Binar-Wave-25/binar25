@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card } from 'react-bootstrap'
 import { BiEditAlt } from 'react-bootstrap-icons'
 
-const profile = () => {
+const Profile = () => {
     
 
     return (
@@ -70,4 +70,4 @@ const profile = () => {
     )
 }
 
-export default profile
+export default Profile

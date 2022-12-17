@@ -13,7 +13,7 @@ const ProfileUpdate = () => {
         const userProfile = { name, email, age, phoneNumber }
         console.log(userProfile)
         set(ref(database,`Histories/${name}`), userProfile)
-        window.location.href = '/profile'
+        window.location.href = '/Profile'
     }
 
     return (
