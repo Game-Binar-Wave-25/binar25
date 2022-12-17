@@ -4,9 +4,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { 
     Button,
     Form,
-    Input
+    Input,
  } from 'reactstrap';
-
+ import StaticModal from '../components/modal';
 const {Component} = require("react")
     
 class Login extends Component {
@@ -15,6 +15,7 @@ class Login extends Component {
         email: '',
         password: '',
         flagginglogin: false,
+        isError: false
     }
 
     handleLogin= () => {
@@ -31,8 +32,8 @@ class Login extends Component {
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                alert (errorMessage)
                 this.setState({flagginglogin:false})
+                this.setState({isError:true})
             });
     
     }
@@ -44,7 +45,7 @@ class Login extends Component {
     }
     
 
-        render() {
+    render() {
     return (
         
         <>
@@ -56,6 +57,7 @@ class Login extends Component {
                         <div className='inputEmail mb-3'>
                             <Input onChange={this.handleOnChange} placeholder='Enter email' id='email' type='email' size="md" />
                         </div>
+                        
                         <div className='inputPassword mb-5'>
                             <Input onChange={this.handleOnChange} placeholder='Enter password' id='password' type='password' size="md" />
                         </div>
@@ -75,7 +77,13 @@ class Login extends Component {
                         <a href="#" className='forget-pw'>forget password</a>
                     </div>
                 </div>
+                { (
+                <StaticModal toogleModal={(value)=> this.setState({isError:value})} isShowModal={this.state.isError}/>
+            )
+            }
             </div>
+
+            
         </>
     );
 }
