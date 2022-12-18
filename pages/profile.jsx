@@ -16,7 +16,6 @@ const Profile = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [bio, setBio] = useState('')
 
-
     const authenticate = () => {
         let storage = localStorage.getItem("accesstoken")
         if (storage === "" || storage === null){
@@ -50,7 +49,7 @@ const Profile = () => {
     }, [isUserId])
 
     return (
-    <div className="profile">
+    <div className="profile text-dark">
         <div className="title-section">
            User Profile
         </div>

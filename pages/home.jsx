@@ -10,11 +10,6 @@ import gambarKarosel from '../components/images/Carousel1.png'
 
 export default function Home(){   
     
-    const authenticate = () => {
-        let storage = localStorage.getItem("accesstoken")
-        if (storage === "" || storage === null){
-          navigate('/login')
-        }
 
     return(
         <div>
@@ -99,7 +94,7 @@ export default function Home(){
             </div>
         </div>
     )
-}
+
 }
 
 // - note : bug on <NavbarComponent/>

@@ -15,6 +15,7 @@ import batu from '../components/images/batu.png'
 import kertas from '../components/images/kertas.png'
 import gunting from '../components/images/gunting.png'
 import back from '../components/images/TombolBack.png'
+import Router from 'next/router'
 
 export default function FirebaseGameSuit(props){
   const [userChoice, setUserChoice] = useState(null)
@@ -69,10 +70,7 @@ export default function FirebaseGameSuit(props){
   const authenticate = () => {
     let storage = localStorage.getItem("accesstoken")
     if (storage === "" || storage === null){
-      navigate('/login')
-      // return NextResponse.redirect('http://localhost:3000/Login')
-      // console.log('terserah');
-      // Router.push('/Login')
+      Router.push('/login') 
     } else {
       let decode = jwt_decode(storage)
       setUser(decode.email)
