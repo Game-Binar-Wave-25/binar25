@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
-import { BiEditAlt } from 'react-bootstrap-icons'
+// import { BiEditAlt } from 'react-bootstrap-icons'
 import  Router  from "next/router";
+import { database } from '../services/firebase'
+import { ref, child, get } from 'firebase/database'
+import jwt_decode from "jwt-decode";
 
 const Profile = () => {
     const [data, setData] = useState({})
     const [isUser, setUser] = useState('')
     const [isUserId, setUserId] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [age, setAge] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [bio, setBio] = useState('')
 
     const authenticate = () => {
         let storage = localStorage.getItem("accesstoken")
@@ -22,9 +30,14 @@ const Profile = () => {
 
     const firebaseData = async () => {
         try {
-            const db = await get(child(ref(database),`Histories/`))
-            setData(db.val())
-            console.log(data)
+            const db = await get(child(ref(database),`Histories/`)) 
+            const item = db.val() 
+            // console.log(isUserId)
+            setName(item?.[isUserId]?.['name'])
+            setEmail(item?.[isUserId]?.['email'])
+            setAge(item?.[isUserId]?.['age'])
+            setPhoneNumber(item?.[isUserId]?.['phoneNumber'])
+            setBio(item?.[isUserId]?.['bio'])
         } catch (error) {
             console.log(error);
         }
@@ -32,11 +45,11 @@ const Profile = () => {
 
     useEffect(() => {
         firebaseData();
-        authenticate();
-    })
+        authenticate(); 
+    },[isUserId])
 
     return (
-    <div className="profile">
+    <div className="profile text-dark">
         <div className="title-section">
            User Profile
         </div>
@@ -45,7 +58,7 @@ const Profile = () => {
                 <Card.Title className="profile-title">User Detail</Card.Title>
                 <Card.Img className="profile-image" variant="top" src='https://www.qoala.app/id/blog/wp-content/uploads/2020/12/Bill-Gates-Profil-Biografi-Fakta-Terkini-2020.jpg' />
                 <Card.Body>
-                    <div className="username">billganteng</div>
+                    <div className="username">{bio}</div>
                     <hr />
                     <div className="rank">
                         Your Rank 
@@ -56,7 +69,7 @@ const Profile = () => {
             </Card>
             <div className="main-info">
                 <div className="info-title-section">
-                <Link className="to-edit" href="/UpdateProfile">edit profile</Link> <p className="info-title">ABOUT ME </p> 
+                <Link className="to-edit" href="/update-profile">edit profile</Link> <p className="info-title">ABOUT ME </p> 
                 </div>
                 <hr />
                 <div className="main-detail">
@@ -70,10 +83,10 @@ const Profile = () => {
                         <p>Phone</p>
                     </div>
                     <div className="info-val">
-                        <p>Bill Gates</p>
-                        <p>billganteng@gmail.com</p>
-                        <p>50</p>
-                        <p>081081081081</p>
+                        <p>{name} </p>
+                        <p>{email} </p>
+                        <p>{age}</p>
+                        <p>{phoneNumber}</p>
                     </div>
                 </div>
                 <br />
@@ -100,6 +113,3 @@ const Profile = () => {
 }
 
 export default Profile
-
-// please finished it :)
-// bug on Card

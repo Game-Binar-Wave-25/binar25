@@ -89,6 +89,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-// dont have sign up route or link to sign up
-// modal still dont have text

@@ -104,7 +104,8 @@ export default function Home(){
 }
 
 // - note : bug on <NavbarComponent/>
-// - home still dont have authenticate
+// - authenticate still problem
+// - need logout button
 // - sry mas natan i replace text-black to text-dark because text-black not work my computer
 // - please create redirect from href={el.web} to <GameDetails props={}> so, page gamedetails
 // have the same data from GameData, since we dont build with redux

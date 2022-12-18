@@ -223,5 +223,3 @@ export default function FirebaseGameSuit(props){
     </div>
   )
 }
-
-// game styling cant connect
