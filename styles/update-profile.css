@@ -12,7 +12,7 @@
     height: 100vh;
   }
   
-  .container {
+  .profile-update .container {
   width: 50%;
   background-color: var(--primary-color);
   /* margin: 10px 0 10px 0; */
