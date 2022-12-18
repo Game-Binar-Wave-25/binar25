@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { database, authFirebase } from '../services/firebase'
 import { ref, set } from 'firebase/database'
 import jwt_decode from "jwt-decode";
+import Router from "next/router";
 
 const ProfileUpdate = () => {
     const [id, setId] = useState(0)
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [hobby, setHobby] = useState('')
     const [age, setAge] = useState('')
     const [bio, setBio] =useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -16,7 +17,7 @@ const ProfileUpdate = () => {
     const authenticate = () => {
       let storage = localStorage.getItem("accesstoken")
       if (storage === "" || storage === null){
-        navigate('/login')
+        Router.push('/login')
       } else {
         let decode = jwt_decode(storage)
         setUser(decode.email)
@@ -33,7 +34,7 @@ const ProfileUpdate = () => {
     authenticate()
     e.preventDefault()
     // setId(id+1)
-    const userProfile = { name, email, age, phoneNumber, bio }
+    const userProfile = { name, age, phoneNumber, hobby, bio }
     console.log(userProfile)
     set(ref(database,`Histories/${isUserId}`), userProfile)
     console.log('data posted')
@@ -53,13 +54,13 @@ const ProfileUpdate = () => {
               </label>
             </div>
             <div className="form-group">
-              <label id="email-label">Email<input value={email} onChange={(e) => setEmail(e.target.value)} id="email" type="email" name="email" className="form-control" placeholder="Enter your email.."  /></label>
-            </div>
-            <div className="form-group">
               <label id="number-label">Age (optional)<input value={age} onChange={(e) => setAge(e.target.value)} id="number" name="age" type="number" className="form-control" min="10" max="99" placeholder="Enter your age.." /></label>
             </div>
             <div className="form-group">
             <label id="phone-label">Phone Number<input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} id="phone" type="text" name="phone" className="form-control" placeholder="Enter your phone number.."  /></label>
+            </div>
+            <div className="form-group">
+              <label id="email-label">Hobby<input value={hobby} onChange={(e) => setHobby(e.target.value)} id="hobby" type="text" name="hobby" className="form-control" placeholder="Enter your hobby.."  /></label>
             </div>
         
             <div className="form-group">
