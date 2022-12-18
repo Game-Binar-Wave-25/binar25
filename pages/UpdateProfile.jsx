@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { database, authFirebase } from '../config/firebase'
+import { database, authFirebase } from '../services/firebase'
 import { ref, set } from 'firebase/database'
 import jwt_decode from "jwt-decode";
+import '../styles/profile.css'
 
 const ProfileUpdate = () => {
     const [id, setId] = useState(0)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [age, setAge] = useState('')
+    const [bio, setBio] =useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [isUser, setUser] = useState('')
     const [isUserId, setUserId] = useState('')
@@ -23,18 +25,21 @@ const ProfileUpdate = () => {
       }
     }
 
-    const handleSubmit = (e) => {
-        // authenticate()
-        e.preventDefault()
-        // setId(id+1)
-        const userProfile = { name, email, age, phoneNumber }
-        console.log(userProfile)
-        set(ref(database,`Histories/${name}`), userProfile)
-        console.log('data posted')
-        window.location.href = '/Profile'
-    }
+    useEffect(() => {
+      authenticate()
+      handleSubmit
+  }, [])
 
-    // useEffect
+  const handleSubmit = (e) => {
+    authenticate()
+    e.preventDefault()
+    // setId(id+1)
+    const userProfile = { name, email, age, phoneNumber, bio }
+    console.log(userProfile)
+    set(ref(database,`Histories/${isUserId}`), userProfile)
+    console.log('data posted')
+    window.location.href = '/Profile'
+}
 
     return (
         <div className="profile-update">
@@ -59,7 +64,7 @@ const ProfileUpdate = () => {
             </div>
         
             <div className="form-group">
-              <label>Your Bio<textarea id="comments" className="input-textarea" name="comment" placeholder="Describe yourself here..."></textarea>
+              <label>Your Bio<textarea value={bio} onChange={(e) => setBio(e.target.value)} id="comments" className="input-textarea" name="comment" placeholder="Describe yourself here..."></textarea>
               </label>
               </div>
               <div className="form-group">

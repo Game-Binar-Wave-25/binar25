@@ -1,37 +1,56 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
-import { BiEditAlt } from 'react-bootstrap-icons'
+// import { BiEditAlt } from 'react-bootstrap-icons'
+import { database } from '../services/firebase'
+import { ref, child, get } from 'firebase/database'
+import jwt_decode from "jwt-decode";
+import '../styles/profile.css'
 
 const Profile = () => {
     const [data, setData] = useState({})
     const [isUser, setUser] = useState('')
     const [isUserId, setUserId] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [age, setAge] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [bio, setBio] = useState('')
 
-    // const authenticate = () => {
-    //     let storage = localStorage.getItem("accesstoken")
-    //     if (storage === "" || storage === null){
-    //       navigate('/LoginPage')
-    //     } else {
-    //       let decode = jwt_decode(storage)
-    //       setUser(decode.email)
-    //       setUserId(decode.user_id)
-    //     }
-    //   }
+
+    const authenticate = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate('/LoginPage')
+        } else {
+          let decode = jwt_decode(storage)
+          setUser(decode.email)
+          setUserId(decode.user_id)
+        }
+      }
 
     const firebaseData = async () => {
         try {
-            const db = await get(child(ref(database),`Histories/`))
-            setData(db.val())
-            console.log(data)
+            const db = await get(child(ref(database),`Histories/`)) 
+            const item = db.val() 
+            console.log(isUserId)
+
+            setName(item?.[isUserId]?.['name'])
+            setEmail(item?.[isUserId]?.['email'])
+            setAge(item?.[isUserId]?.['age'])
+            setPhoneNumber(item?.[isUserId]?.['phoneNumber'])
+            setBio(item?.[isUserId]?.['bio'])
+            // console.log(name, email, age, phoneNumber)
+
         } catch (error) {
             console.log(error);
         }
     }
 
     useEffect(() => {
+        authenticate()
         firebaseData()
-    })
+    }, [])
 
     return (
     <div className="profile">
@@ -43,7 +62,7 @@ const Profile = () => {
                 <Card.Title className="profile-title">User Detail</Card.Title>
                 <Card.Img className="profile-image" variant="top" src='https://www.qoala.app/id/blog/wp-content/uploads/2020/12/Bill-Gates-Profil-Biografi-Fakta-Terkini-2020.jpg' />
                 <Card.Body>
-                    <div className="username">billganteng</div>
+                    <div className="username">{bio}</div>
                     <hr />
                     <div className="rank">
                         Your Rank 
@@ -68,10 +87,10 @@ const Profile = () => {
                         <p>Phone</p>
                     </div>
                     <div className="info-val">
-                        <p>Bill Gates</p>
-                        <p>billganteng@gmail.com</p>
-                        <p>50</p>
-                        <p>081081081081</p>
+                        <p>{name} </p>
+                        <p>{email} </p>
+                        <p>{age}</p>
+                        <p>{phoneNumber}</p>
                     </div>
                 </div>
                 <br />
