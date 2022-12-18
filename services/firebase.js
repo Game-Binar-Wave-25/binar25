@@ -10,7 +10,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
-  databaseURL: "https://challenge-chapter-10-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL: process.env.NEXT_PUBLIC_DATABASEURL,
 };
 
 const app = initializeApp(firebaseConfig);
