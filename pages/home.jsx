@@ -7,7 +7,15 @@ import Button from 'react-bootstrap/Button';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import gambarKarosel from '../components/images/Carousel1.png'
 
-export default function Home(){    
+
+export default function Home(){   
+    
+    const authenticate = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate('/login')
+        }
+
     return(
         <div>
             <div className="BackgroundBody">
@@ -91,6 +99,7 @@ export default function Home(){
             </div>
         </div>
     )
+}
 }
 
 // - note : bug on <NavbarComponent/>

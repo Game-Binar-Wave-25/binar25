@@ -8,16 +8,16 @@ const Profile = () => {
     const [isUser, setUser] = useState('')
     const [isUserId, setUserId] = useState('')
 
-    // const authenticate = () => {
-    //     let storage = localStorage.getItem("accesstoken")
-    //     if (storage === "" || storage === null){
-    //       navigate('/LoginPage')
-    //     } else {
-    //       let decode = jwt_decode(storage)
-    //       setUser(decode.email)
-    //       setUserId(decode.user_id)
-    //     }
-    //   }
+    const authenticate = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate('/LoginPage')
+        } else {
+          let decode = jwt_decode(storage)
+          setUser(decode.email)
+          setUserId(decode.user_id)
+        }
+      }
 
     const firebaseData = async () => {
         try {

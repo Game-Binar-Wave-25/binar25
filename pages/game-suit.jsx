@@ -69,7 +69,7 @@ export default function FirebaseGameSuit(props){
   const authenticate = () => {
     let storage = localStorage.getItem("accesstoken")
     if (storage === "" || storage === null){
-      // navigate('/login')
+      navigate('/login')
       // return NextResponse.redirect('http://localhost:3000/Login')
       // console.log('terserah');
       // Router.push('/Login')
