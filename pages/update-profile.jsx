@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { database, authFirebase } from '../services/firebase'
 import { ref, set } from 'firebase/database'
 import jwt_decode from "jwt-decode";
-import '../styles/profile.css'
 
 const ProfileUpdate = () => {
     const [id, setId] = useState(0)
@@ -17,7 +16,7 @@ const ProfileUpdate = () => {
     const authenticate = () => {
       let storage = localStorage.getItem("accesstoken")
       if (storage === "" || storage === null){
-        navigate('/LoginPage')
+        navigate('/login')
       } else {
         let decode = jwt_decode(storage)
         setUser(decode.email)
@@ -38,7 +37,7 @@ const ProfileUpdate = () => {
     console.log(userProfile)
     set(ref(database,`Histories/${isUserId}`), userProfile)
     console.log('data posted')
-    window.location.href = '/Profile'
+    window.location.href = '/profile'
 }
 
     return (
@@ -50,17 +49,17 @@ const ProfileUpdate = () => {
           </header>
         <form onSubmit={handleSubmit} >
             <div className="form-group">
-              <label id="name-label" htmlFor="name">Name<input value={name} onChange={(e) => setName(e.target.value)} id="name" name="name" type="text" className="form-control" placeholder="Enter your name" />
+              <label id="name-label" htmlFor="name">Name<input value={name} onChange={(e) => setName(e.target.value)} id="name" name="name" type="text" className="form-control" placeholder="Enter your name..." />
               </label>
             </div>
             <div className="form-group">
-              <label id="email-label">Email<input value={email} onChange={(e) => setEmail(e.target.value)} id="email" type="email" name="email" className="form-control" placeholder="Enter your email"  /></label>
+              <label id="email-label">Email<input value={email} onChange={(e) => setEmail(e.target.value)} id="email" type="email" name="email" className="form-control" placeholder="Enter your email.."  /></label>
             </div>
             <div className="form-group">
-              <label id="number-label">Age (optional)<input value={age} onChange={(e) => setAge(e.target.value)} id="number" name="age" type="number" className="form-control" min="10" max="99" placeholder="Age" /></label>
+              <label id="number-label">Age (optional)<input value={age} onChange={(e) => setAge(e.target.value)} id="number" name="age" type="number" className="form-control" min="10" max="99" placeholder="Enter your age.." /></label>
             </div>
             <div className="form-group">
-            <label id="phone-label">Phone Number<input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} id="phone" type="text" name="phone" className="form-control" placeholder="Enter your Phone Number"  /></label>
+            <label id="phone-label">Phone Number<input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} id="phone" type="text" name="phone" className="form-control" placeholder="Enter your phone number.."  /></label>
             </div>
         
             <div className="form-group">

@@ -5,7 +5,6 @@ import { Card } from 'react-bootstrap'
 import { database } from '../services/firebase'
 import { ref, child, get } from 'firebase/database'
 import jwt_decode from "jwt-decode";
-import '../styles/profile.css'
 
 const Profile = () => {
     const [data, setData] = useState({})
@@ -21,7 +20,7 @@ const Profile = () => {
     const authenticate = () => {
         let storage = localStorage.getItem("accesstoken")
         if (storage === "" || storage === null){
-          navigate('/LoginPage')
+          navigate('/login')
         } else {
           let decode = jwt_decode(storage)
           setUser(decode.email)
@@ -33,15 +32,12 @@ const Profile = () => {
         try {
             const db = await get(child(ref(database),`Histories/`)) 
             const item = db.val() 
-            console.log(isUserId)
-
+            // console.log(isUserId)
             setName(item?.[isUserId]?.['name'])
             setEmail(item?.[isUserId]?.['email'])
             setAge(item?.[isUserId]?.['age'])
             setPhoneNumber(item?.[isUserId]?.['phoneNumber'])
             setBio(item?.[isUserId]?.['bio'])
-            // console.log(name, email, age, phoneNumber)
-
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +46,8 @@ const Profile = () => {
     useEffect(() => {
         authenticate()
         firebaseData()
-    }, [])
+        // console.log(isUserId)
+    }, [isUserId])
 
     return (
     <div className="profile">
@@ -73,7 +70,7 @@ const Profile = () => {
             </Card>
             <div className="main-info">
                 <div className="info-title-section">
-                <Link className="to-edit" href="/UpdateProfile">edit profile</Link> <p className="info-title">ABOUT ME </p> 
+                <Link className="to-edit" href="/update-profile">edit profile</Link> <p className="info-title">ABOUT ME </p> 
                 </div>
                 <hr />
                 <div className="main-detail">

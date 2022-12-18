@@ -1,6 +1,8 @@
 import Head from "next/head";
 // import "../css/customcss.css";
-import "../styles/globals.css"
+import '../styles/profile.css'
+import '../styles/update-profile.css'
+
 
 function MyApp({ Component, pageProps }) {
 return (
