@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
 import DataTable from 'react-data-table-component';
+import authenticate from './api/auth'
+
 
 export default function FirebaseGameSuitTable(params) {
     const [data, setData] = useState({})
@@ -53,6 +55,7 @@ export default function FirebaseGameSuitTable(params) {
     useEffect(()=>{
         dataTable()
         console.log('test');
+        authenticate();
     })
     return(
         <div className='BackgroundBody'>

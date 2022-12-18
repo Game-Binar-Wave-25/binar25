@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
 import { BiEditAlt } from 'react-bootstrap-icons'
+import  Router  from "next/router";
 
 const Profile = () => {
     const [data, setData] = useState({})
@@ -11,7 +12,7 @@ const Profile = () => {
     const authenticate = () => {
         let storage = localStorage.getItem("accesstoken")
         if (storage === "" || storage === null){
-          navigate('/LoginPage')
+          Router.push('/login')
         } else {
           let decode = jwt_decode(storage)
           setUser(decode.email)
@@ -30,7 +31,8 @@ const Profile = () => {
     }
 
     useEffect(() => {
-        firebaseData()
+        firebaseData();
+        authenticate();
     })
 
     return (

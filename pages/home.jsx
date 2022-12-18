@@ -6,15 +6,17 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import gambarKarosel from '../components/images/Carousel1.png'
+import { useEffect } from "react"
+import authenticate from "./api/auth";
 
 
 export default function Home(){   
-    
-    const authenticate = () => {
-        let storage = localStorage.getItem("accesstoken")
-        if (storage === "" || storage === null){
-          navigate('/login')
-        }
+
+
+      useEffect(() => {
+        authenticate()
+    }, [])
+
 
     return(
         <div>
@@ -99,7 +101,6 @@ export default function Home(){
             </div>
         </div>
     )
-}
 }
 
 // - note : bug on <NavbarComponent/>

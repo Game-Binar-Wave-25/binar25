@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { database, authFirebase } from '../services/firebase'
 import { ref, set } from 'firebase/database'
 import jwt_decode from "jwt-decode";
+import Router from "next/router";
 
 const ProfileUpdate = () => {
     const [id, setId] = useState(0)
@@ -15,7 +16,7 @@ const ProfileUpdate = () => {
     const authenticate = () => {
       let storage = localStorage.getItem("accesstoken")
       if (storage === "" || storage === null){
-        navigate('/LoginPage')
+        Router.push('/login')
       } else {
         let decode = jwt_decode(storage)
         setUser(decode.email)
