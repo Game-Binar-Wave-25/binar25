@@ -16,9 +16,48 @@ export default function NavbarComponent() {
     const router = useRouter();
     const currentRoute = router.pathname;
 
+    const handleLogout = () => {
+        localStorage.removeItem('accesstoken')
+       }   
+
     return(
         <div className="fixed-top">
-            <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                <Navbar.Brand>
+                <Image
+                    src={LogoBinar.src}
+                    alt="Binar Academy"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"/>{''}
+                    Binar Game Library
+                </Navbar.Brand>
+                {/* <Navbar.Brand className="">Binar Game Library</Navbar.Brand> */}
+                <Nav className="d-flex justify-content-end">
+                    <Nav.Link 
+                    href="/Home"
+                    className={currentRoute === '/Home' ? styles.active : styles.nonActive}>
+                        Home
+                    </Nav.Link>
+                    <Nav.Link 
+                    href="/Profile"
+                    className={currentRoute === '/Profile' ? styles.active : styles.nonActive}>
+                        Profile
+                    </Nav.Link>
+                    <Nav.Link 
+                    href="/"
+                    onClick={handleLogout}
+                    className="text-danger">
+                        Logout
+                    </Nav.Link>
+                </Nav>
+                </Container>
+            </Navbar>
+
+
+
+            {/* <Navbar bg="dark" variant="dark">
                 <Container>
                 <Navbar.Brand>
                     <Image
@@ -34,24 +73,30 @@ export default function NavbarComponent() {
                     </div>
                     <Navbar.Collapse className='d-flex justify-content-end'>
                             <Nav.Link className="d-flex align-items-center me-2 text-white">      
-                            <Link href='/Home' className={currentRoute === '/Home' ? styles.active : styles.nonActive}>
+                            <Link 
+                                href='/Home' 
+                                className={currentRoute === '/Home' ? styles.active : styles.nonActive}
+                            >
                                 Home
                             </Link></Nav.Link>
                             <Nav.Link className="d-flex align-items-center text-white me-2">     
                             <Link
                                 href='/Profile'
-                                className={currentRoute === '/Profile' ? styles.active : styles.nonActive}>
+                                className={currentRoute === '/Profile' ? styles.active : styles.nonActive}
+                                >
                                 Profile
                             </Link></Nav.Link>
                             <Nav.Link className="d-flex align-items-center text-white">     
                             <Link
                                 href='/'
-                                className={currentRoute === '/' ? styles.active : styles.nonActive}>
+                                className={currentRoute === '/' ? styles.active : styles.nonActive}
+                                // onClick={handleOnClick}
+                                >
                                 Logout
                             </Link></Nav.Link>              
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
-        </div>
+            </Navbar>*/}
+        </div> 
     )
 }

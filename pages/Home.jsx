@@ -16,6 +16,7 @@ export default function Home(){
     // let convert = text.slice(0, 5) + (text.length > 5 ? "..." : "");
     // console.log(text);
     // console.log(convert);
+   
     
     return(
         <div>
@@ -38,7 +39,7 @@ export default function Home(){
                     </div>
                     <div>
                       <img
-                        src="https://img.freepik.com/premium-vector/hands-playing-rock-paper-scissors-game-flat-design-style-vector-illustration_540284-598.jpg?w=2000" alt="image2"
+                        src="https://image.winudf.com/v2/image1/Y29tLm1hdGFuYS5jaGFuZGEuYXBwc19pY29uXzE1Nzg5NTQyMTNfMDcz/icon.png?w=100&fakeurl=1&type=.webp" alt="image2"
                     //   style={{height: "200px", height:"400px"}}
                       />
                     </div>

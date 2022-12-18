@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import LogoBinar from "../components/images/Binar.png"
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
         <div className="position-absolute top-50 start-50 translate-middle">
           <Card style={{widht: '500px'}}>
             <img 
-            src='https://play-lh.googleusercontent.com/_5KoeljZI1DlzpSpSltfdAFJKghgl0E1iUB9h9l-q2TIGsZlQY1TU6JlPR_2uCs8iQ=s96-rw'
+            src={LogoBinar.src}
             alt="gambar welcome"
             widht="400"
             height="500"/>
