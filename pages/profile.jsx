@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
-// import { BiEditAlt } from 'react-bootstrap-icons'
 import  Router  from "next/router";
 import { database } from '../services/firebase'
 import { ref, child, get } from 'firebase/database'
@@ -12,7 +11,7 @@ const Profile = () => {
     const [isUser, setUser] = useState('')
     const [isUserId, setUserId] = useState('')
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [hobby, setHobby] = useState('')
     const [age, setAge] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [bio, setBio] = useState('')
@@ -34,9 +33,9 @@ const Profile = () => {
             const item = db.val() 
             // console.log(isUserId)
             setName(item?.[isUserId]?.['name'])
-            setEmail(item?.[isUserId]?.['email'])
             setAge(item?.[isUserId]?.['age'])
             setPhoneNumber(item?.[isUserId]?.['phoneNumber'])
+            setHobby(item?.[isUserId]?.['hobby'])
             setBio(item?.[isUserId]?.['bio'])
         } catch (error) {
             console.log(error);
@@ -78,15 +77,15 @@ const Profile = () => {
                 </article> */}
                     <div className="info-prop">
                         <p>Name</p>
-                        <p>Email</p>
                         <p>Age</p>
                         <p>Phone</p>
+                        <p>Hobby</p>
                     </div>
                     <div className="info-val">
                         <p>{name} </p>
-                        <p>{email} </p>
                         <p>{age}</p>
                         <p>{phoneNumber}</p>
+                        <p>{hobby} </p>
                     </div>
                 </div>
                 <br />
