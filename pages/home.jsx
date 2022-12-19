@@ -53,7 +53,7 @@ export default function Home(){
                     </div>
                   
               </Carousel>
-              <Button href="/GameSuit" variant="dark" className="d-flex justify-content-center">Play Now!</Button>
+              <Button href="/game-suit" variant="dark" className="d-flex justify-content-center">Play Now!</Button>
             </div>
 
             <br /><br /><br />
@@ -67,8 +67,8 @@ export default function Home(){
                         <Card className="justify-content me-3" style={{ width: '18rem' }}>
                         <Card.Img style={{height: "166px"}} src={el.linkImg} />
                         <Card.Body>
-                            <Card.Title className='text-black'>{el.title}</Card.Title>
-                            <Card.Text className='text-black card-text'>
+                            <Card.Title className='text-dark'>{el.title}</Card.Title>
+                            <Card.Text className='text-dark card-text'>
                             {el.category}
                             </Card.Text>
                             <Button className="d-flex justify-content-center" href={el.web} alt="gambar game" variant="primary">See More</Button>
@@ -90,8 +90,8 @@ export default function Home(){
                         <Card className="justify-content me-3" style={{ width: '18rem' }}>
                         <Card.Img style={{height: "166px"}} src={el.linkImg} />
                         <Card.Body>
-                            <Card.Title className='text-black'>{el.title}</Card.Title>
-                            <Card.Text className='text-black card-text'>
+                            <Card.Title className='text-dark'>{el.title}</Card.Title>
+                            <Card.Text className='text-dark card-text'>
                             {el.category}
                             </Card.Text>
                             <Button className="d-flex justify-content-center" href={el.web} alt="gambar game" variant="primary">See More</Button>
