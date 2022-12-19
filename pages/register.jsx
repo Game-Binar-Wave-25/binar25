@@ -7,6 +7,7 @@ import {
     Input
  } from 'reactstrap';
 import StaticModal from '../components/modal';
+import Link from 'next/link';
 
 const {Component} = require("react")
     
@@ -62,9 +63,9 @@ class Register extends Component {
                     <div>
                         <p className="paraf text-dark">
                             You have an account?
-                            <a href="/login" className='signin'>
+                            <Link href="/login" className='signin'>
                                 Sign In
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

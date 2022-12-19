@@ -7,6 +7,7 @@ import {
     Form,
     Input,
  } from 'reactstrap';
+import Link from 'next/link';
 //  import StaticModal from '../components/modal';
 const {Component} = require("react")
     
@@ -74,7 +75,7 @@ class Login extends Component {
                         <Button className='google-btn fw-bold' color='danger'>G</Button>
                     </div>
                     <div>
-                        <p className="paraf-login text-dark">Don't have an account?<a href="/register" className='signin'>Sign Up</a></p>
+                        <p className="paraf-login text-dark">Don&apos;t have an account?<Link href="/register" className="signin">Sign Up</Link></p>
                     </div>
                 </div>
                 { 
